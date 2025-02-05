@@ -27,6 +27,10 @@ import Home from './Home';
 import NewBlogPage from './NewBlogPage';
 import Header from './Header'; // Import the Header component
 import { BlogProvider } from './BlogProvider'; // Ensure BlogProvider wraps all routes
+import EditDelete from './EditDelete';
+import BlogDetail from './BlogDetail';
+import Contact from './Contact';
+
 
 const App = () => {
   return (
@@ -37,6 +41,9 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Home />} /> {/* Home page */}
             <Route path="/new-blog" element={<NewBlogPage />} /> {/* NewBlog page */}
+            <Route path="/edit-blog" element={<EditDelete/>}/>
+            <Route path="/blog/:blogId" element={<BlogDetail />} />
+            <Route path="/contact" element ={<Contact/>} />
           </Routes>
         </div>
       </Router>
