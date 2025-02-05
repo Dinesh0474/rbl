@@ -1,7 +1,17 @@
-import React from "react";
-import { Link } from "react-router-dom"; // Import Link from react-router-dom
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
+    const [isMenuOpen, setIsMenuOpen] = useState(false); 
+
+    const toggleMenu = () => {
+        setIsMenuOpen(!isMenuOpen); 
+    };
+
+    const closeMenu = () => {
+        setIsMenuOpen(false); 
+    };
+
     return (
         <>
             <div>
@@ -14,12 +24,26 @@ const Header = () => {
                         <Link to="/new-blog" className="hover:text-gray-400">CREATE BLOG</Link>
                         <Link to="/edit-blog" className="hover:text-gray-400">EDIT BLOG</Link>
                         <Link to="/contact" className="hover:text-gray-400">CONTACT</Link>
-                     
                     </nav>
-                    <button className="text-white p-2 sm:hidden">
-                        <i className="fas fa-search"></i>
+                    <button 
+                        onClick={toggleMenu} 
+                        className="sm:hidden text-white p-2"
+                    >
+                        <i className="fas fa-bars text-white"></i> 
                     </button>
                 </header>
+                {isMenuOpen && (
+                    <nav className="sm:hidden flex flex-col space-y-4 bg-[#101010] py-4 px-8 absolute top-0 right-0 w-full text-center text-white">
+                     
+                        <button onClick={closeMenu} className="text-white text-2xl absolute top-4 right-4">
+                            <i className="fas fa-times"></i> 
+                        </button>
+                        <Link to="/" className="hover:text-gray-400">BLOGS</Link>
+                        <Link to="/new-blog" className="hover:text-gray-400">CREATE BLOG</Link>
+                        <Link to="/edit-blog" className="hover:text-gray-400">EDIT BLOG</Link>
+                        <Link to="/contact" className="hover:text-gray-400">CONTACT</Link>
+                    </nav>
+                )}
             </div>
         </>
     );
