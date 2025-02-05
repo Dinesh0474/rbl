@@ -57,7 +57,7 @@ const NewBlog = ({ onNewBlog }) => {
   };
 
   return (
-    <div className="w-full md:h-screen bg-[#1a1a1a] flex flex-col justify-center items-center py-10">
+    <div className="w-full min-h-screen bg-[#1a1a1a] flex flex-col justify-center items-center py-10">
       <div className="w-[90%] max-w-7xl bg-[#101010] rounded-lg shadow-lg p-6">
         <h1 className="text-3xl font-extrabold text-white mb-6">Create a New Blog Post</h1>
         
